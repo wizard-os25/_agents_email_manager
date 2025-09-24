@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chào mừng nhân sự mới</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333333;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background-color: #fafafa;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #555555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>Dear {{Employee_Name}},</p>
+
+    <p><strong>Nồng nhiệt chào đón em đến với BiPlus 🌻</strong></p>
+
+    <p>
+      {{Employee_Name}} sẽ bắt đầu làm việc tại BiPlus vào chiều ngày
+      <strong>{{Start_Date}}</strong>. Chị gửi em các thông tin cần thiết trong
+      ngày đầu tiên như dưới đây nhé:
+    </p>
+
+    <ol>
+      <li>Gửi xe: tầng hầm tòa nhà</li>
+      <li>
+        Kế hoạch hội nhập ngày đầu tiên:
+        <ul>
+          <li>Gặp và làm quen với team {{Team_Name}}</li>
+          <li>Tham gia phiên hướng dẫn kế hoạch hội nhập</li>
+          <li>Tham gia phiên định hướng mục tiêu công việc</li>
+          <li>Giới thiệu và làm quen với các nhóm khác trong công ty</li>
+          <li>Tìm hiểu về công ty, các quy định nhân sự</li>
+          <li>Tìm hiểu về quy trình làm việc</li>
+          <li>Hoàn thiện các thủ tục nhân sự</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p>
+      <strong>Note:</strong> Em mang theo laptop cá nhân để làm việc, cốc/bình
+      cá nhân để uống nước và mang theo chăn gối văn phòng để ngủ trưa (nếu cần)
+      nhé.
+    </p>
+
+    <h3>🌟 Bí quyết để nhanh chóng hội nhập tại BiPlus:</h3>
+    <p>
+      Hội nhập là quá trình các thành viên mới điều chỉnh hành vi, cách làm việc
+      của mình để hội nhập được với văn hóa, cách làm việc của công ty, của nhóm.
+    </p>
+    <p>
+      BiPlus lấy triết lý Agile làm nền tảng trong các hoạt động, theo đó văn hóa
+      và cách thức làm việc khá mới và khác biệt. Tại đây, nhóm tự thảo luận để đưa
+      ra mục tiêu cũng như cách thức làm việc để đạt được mục tiêu đó. Tính linh
+      hoạt, tự chủ và minh bạch cao. Do vậy, để hội nhập nhanh tại BiPlus, bạn nên:
+    </p>
+
+    <p><strong>1 đến 3 ngày đầu tiên tập trung vào:</strong></p>
+    <ul>
+      <li>Tìm hiểu công ty, văn hóa và các quy định chung</li>
+      <li>Tìm hiểu về Agile, scrum</li>
+      <li>Các quy trình làm việc</li>
+      <li>Khóa học tư duy nền tảng</li>
+    </ul>
+
+    <p><strong>Trong tuần đầu tiên:</strong></p>
+    <ul>
+      <li>Làm quen với mọi người</li>
+      <li>Quan sát và làm quen với cách làm việc của công ty, của nhóm</li>
+    </ul>
+
+    <p><strong>Cách làm việc đúng:</strong></p>
+    <ul>
+      <li>Kỷ luật, cam kết, tôn trọng là những thứ bạn phải tuyệt đối tuân thủ.</li>
+      <li>
+        Hãy bắt đầu bằng một tâm trí “tươi mới”, “cởi mở” và “trống rỗng”.
+        Đừng để kinh nghiệm, hiểu biết thông thường cản trở hành trình học hỏi.
+      </li>
+      <li>
+        Đừng vội phán xét. Hãy quan sát, làm theo và tuân thủ để hiểu tường tận.
+        Ghi chép lại thắc mắc hoặc đề xuất để thảo luận cùng team lead/trainer.
+      </li>
+    </ul>
+
+    <p><strong>Những điều nên tránh:</strong></p>
+    <ul>
+      <li>Sốt ruột đi ngay vào công việc.</li>
+      <li>Tự mình làm theo cách riêng, bỏ qua quy trình đã thống nhất.</li>
+      <li>Đưa ra ngay ý kiến cải tiến khi chưa hiểu rõ bối cảnh.</li>
+    </ul>
+
+    <p>Nếu em cần hỗ trợ thêm thông tin nào thì trao đổi với chị nhé.</p>
+
+    <div class="footer">
+      <p>
+        Thân mến,<br>
+        {{HR_Name}},<br>
+        HRA Team
+      </p>
+
+      <p>
+        --
+        <br>NGUYEN CAM CHI (Ms.)
+        <br>HRA Team
+        <br>M 0987623189 | E chinc@biplus.com.vn | W biplus.com.vn
+      </p>
+
+      <p>
+        BiPlus Vietnam Software Solutions JSC
+        <br>A 3rd Floor, Bao Anh Building, 85 Tran Thai Tong, Cau Giay, Ha Noi, Vietnam
+      </p>
+    </div>
+  </div>
+</body>
+</html>

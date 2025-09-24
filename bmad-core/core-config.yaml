@@ -1,0 +1,42 @@
+# <!-- Powered by BMAD™ Core -->
+markdownExploder: true
+
+qa:
+  qaLocation: docs/qa
+
+prd:
+  prdFile: docs/prd-email.md   # PRD cho onboarding email
+  prdVersion: v1
+  prdSharded: true
+  prdShardedLocation: docs/prd
+  epicFilePattern: epic-{n}*.md
+
+architecture:
+  architectureFile: docs/architecture-email.md
+  architectureVersion: v1
+  architectureSharded: true
+  architectureShardedLocation: docs/architecture
+
+customTechnicalDocuments: null
+
+devLoadAlwaysFiles:
+  - docs/architecture/coding-standards.md
+  - docs/architecture/tech-stack.md
+  - docs/architecture/source-tree.md
+
+devDebugLog: .ai/debug-log.md
+devStoryLocation: docs/stories
+slashPrefix: BMad
+
+# =====================================================
+# 👇 SMTP configuration for Gmail (for testing purpose)
+# =====================================================
+smtp:
+  host: "smtp.gmail.com"
+  port: 587
+  user: "msy.duhu@gmail.com"     # thay bằng Gmail cá nhân
+  password: ""    # App Password (16 ký tự), KHÔNG dùng password thật
+  security: "STARTTLS"
+  retryPolicy:
+    attempts: 3
+    backoff: exponential
