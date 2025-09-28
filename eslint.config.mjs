@@ -84,6 +84,20 @@ export default [
     },
   },
 
+  // CLI scripts under scripts/**
+  {
+    files: ['scripts/**/*.{js,mjs}'],
+    rules: {
+      // Allow process.exit for CLI scripts
+      'unicorn/no-process-exit': 'off',
+      'n/no-process-exit': 'off',
+      // Allow top-level await for CLI scripts
+      'unicorn/prefer-top-level-await': 'off',
+      // Allow console for CLI tools
+      'no-console': 'off',
+    },
+  },
+
   // ESLint config file should not be checked for publish-related Node rules
   {
     files: ['eslint.config.mjs'],

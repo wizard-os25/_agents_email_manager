@@ -1,136 +1,173 @@
+<!--
+  BMAD/Email Template
+  NOTE:
+  - Mình dùng placeholders dạng {{Tên biến}} là khuyến nghị (dễ dùng với template engines).
+  - Nếu bạn muốn giữ nguyên dạng <Tên nhân viên> như bản gốc, dùng phiên bản escaped:
+    &lt;Tên nhân viên&gt;  -> sẽ hiển thị đúng trong HTML, nhưng khó dùng cho replace thẳng.
+-->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Chào mừng nhân sự mới</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chào mừng {{Tên nhân viên}} đến với BiPlus!</title>
   <style>
+    /* Inline styles được giữ tối giản để dễ dùng cho email clients */
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333333;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background-color: #f6f8fa;
+      margin: 0;
+      padding: 20px;
+      color: #0b1320;
+      line-height: 1.5;
     }
     .container {
-      max-width: 700px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #e0e0e0;
+      background: #ffffff;
       border-radius: 8px;
-      background-color: #fafafa;
+      box-shadow: 0 6px 18px rgba(11,19,32,0.06);
+      overflow: hidden;
+      border: 1px solid #e6e9ef;
     }
-    h1 {
-      color: #2c3e50;
+    .header {
+      padding: 24px 28px;
+      background: linear-gradient(90deg,#ffefc2,#fff);
+      border-bottom: 1px solid #f0e6d6;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 20px;
+      color: #2b2b2b;
+    }
+    .content {
+      padding: 22px 28px;
+      font-size: 15px;
+    }
+    .muted {
+      color: #6b7280;
+      font-size: 13px;
+    }
+    .section-title {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
     ul {
       padding-left: 20px;
+      margin-top: 6px;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .note {
+      background: #fff8e6;
+      border-left: 4px solid #ffd166;
+      padding: 12px 14px;
+      margin: 14px 0;
+      border-radius: 6px;
     }
     .footer {
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #555555;
+      padding: 18px 28px;
+      background: #fbfbfc;
+      font-size: 13px;
+      color: #475569;
+      border-top: 1px solid #f0f2f5;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      background: #0ea5a1;
+      color: white;
+    }
+
+    /* responsive small */
+    @media (max-width: 480px) {
+      .container { margin: 10px; }
+      .header, .content, .footer { padding-left: 16px; padding-right: 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <p>Dear {{Employee_Name}},</p>
+  <div class="container" role="article" aria-label="Welcome email">
+    <div class="header">
+      <h1>Chào mừng {{Tên nhân viên}} đến với BiPlus!</h1>
+    </div>
 
-    <p><strong>Nồng nhiệt chào đón em đến với BiPlus 🌻</strong></p>
+    <div class="content">
+      <p>Thân gửi <strong>{{Tên nhân viên}}</strong>,</p>
 
-    <p>
-      {{Employee_Name}} sẽ bắt đầu làm việc tại BiPlus vào chiều ngày
-      <strong>{{Start_Date}}</strong>. Chị gửi em các thông tin cần thiết trong
-      ngày đầu tiên như dưới đây nhé:
-    </p>
+      <p>Nồng nhiệt chào đón bạn đến với BiPlus <em>sunflower</em>.</p>
 
-    <ol>
-      <li>Gửi xe: tầng hầm tòa nhà</li>
-      <li>
-        Kế hoạch hội nhập ngày đầu tiên:
-        <ul>
-          <li>Gặp và làm quen với team {{Team_Name}}</li>
-          <li>Tham gia phiên hướng dẫn kế hoạch hội nhập</li>
-          <li>Tham gia phiên định hướng mục tiêu công việc</li>
-          <li>Giới thiệu và làm quen với các nhóm khác trong công ty</li>
-          <li>Tìm hiểu về công ty, các quy định nhân sự</li>
-          <li>Tìm hiểu về quy trình làm việc</li>
-          <li>Hoàn thiện các thủ tục nhân sự</li>
-        </ul>
-      </li>
-    </ol>
+      <p><strong>{{Tên nhân viên}}</strong> sẽ bắt đầu làm việc tại BiPlus vào ngày <strong>{{ngày_onboard}}</strong>. HRA (team Hành chính nhân sự) gửi bạn các thông tin cần thiết trong ngày đầu tiên như dưới đây nhé:</p>
 
-    <p>
-      <strong>Note:</strong> Em mang theo laptop cá nhân để làm việc, cốc/bình
-      cá nhân để uống nước và mang theo chăn gối văn phòng để ngủ trưa (nếu cần)
-      nhé.
-    </p>
+      <p class="section-title">Gửi xe</p>
+      <p class="muted">Tầng hầm tòa nhà</p>
 
-    <h3>🌟 Bí quyết để nhanh chóng hội nhập tại BiPlus:</h3>
-    <p>
-      Hội nhập là quá trình các thành viên mới điều chỉnh hành vi, cách làm việc
-      của mình để hội nhập được với văn hóa, cách làm việc của công ty, của nhóm.
-    </p>
-    <p>
-      BiPlus lấy triết lý Agile làm nền tảng trong các hoạt động, theo đó văn hóa
-      và cách thức làm việc khá mới và khác biệt. Tại đây, nhóm tự thảo luận để đưa
-      ra mục tiêu cũng như cách thức làm việc để đạt được mục tiêu đó. Tính linh
-      hoạt, tự chủ và minh bạch cao. Do vậy, để hội nhập nhanh tại BiPlus, bạn nên:
-    </p>
+      <p class="section-title">Kế hoạch hội nhập ngày đầu tiên</p>
+      <ul>
+        <li>Gặp và làm quen với team <strong>{{Tên team}}</strong></li>
+        <li>Tham gia phiên hướng dẫn kế hoạch hội nhập</li>
+        <li>Tham gia phiên định hướng mục tiêu công việc</li>
+        <li>Giới thiệu và làm quen với các nhóm khác trong công ty</li>
+        <li>Tìm hiểu về công ty, các quy định nhân sự</li>
+        <li>Tìm hiểu về quy trình làm việc</li>
+        <li>Hoàn thiện các thủ tục nhân sự</li>
+      </ul>
 
-    <p><strong>1 đến 3 ngày đầu tiên tập trung vào:</strong></p>
-    <ul>
-      <li>Tìm hiểu công ty, văn hóa và các quy định chung</li>
-      <li>Tìm hiểu về Agile, scrum</li>
-      <li>Các quy trình làm việc</li>
-      <li>Khóa học tư duy nền tảng</li>
-    </ul>
+      <div class="note">
+        <strong>Note:</strong> bạn mang theo laptop cá nhân để làm việc và cốc/bình cá nhân để uống nước và mang theo chăn gối văn phòng để ngủ trưa (nếu cần) nhé.
+      </div>
 
-    <p><strong>Trong tuần đầu tiên:</strong></p>
-    <ul>
-      <li>Làm quen với mọi người</li>
-      <li>Quan sát và làm quen với cách làm việc của công ty, của nhóm</li>
-    </ul>
+      <p class="section-title">Bí quyết để nhanh chóng hội nhập tại BiPlus</p>
+      <p>Hội nhập là quá trình các thành viên mới điều chỉnh hành vi, cách làm việc của mình để hội nhập được với văn hóa, cách làm việc của công ty, của nhóm.</p>
 
-    <p><strong>Cách làm việc đúng:</strong></p>
-    <ul>
-      <li>Kỷ luật, cam kết, tôn trọng là những thứ bạn phải tuyệt đối tuân thủ.</li>
-      <li>
-        Hãy bắt đầu bằng một tâm trí “tươi mới”, “cởi mở” và “trống rỗng”.
-        Đừng để kinh nghiệm, hiểu biết thông thường cản trở hành trình học hỏi.
-      </li>
-      <li>
-        Đừng vội phán xét. Hãy quan sát, làm theo và tuân thủ để hiểu tường tận.
-        Ghi chép lại thắc mắc hoặc đề xuất để thảo luận cùng team lead/trainer.
-      </li>
-    </ul>
+      <p>BiPlus lấy triết lý <strong>Agile</strong> làm nền tảng trong các hoạt động, theo đó văn hóa và cách thức làm việc khá mới và khác biệt. Tại đây, nhóm tự thảo luận để đưa ra mục tiêu cũng như cách thức làm việc để đạt được mục tiêu đó. Tính linh hoạt, tự chủ và minh bạch cao.</p>
 
-    <p><strong>Những điều nên tránh:</strong></p>
-    <ul>
-      <li>Sốt ruột đi ngay vào công việc.</li>
-      <li>Tự mình làm theo cách riêng, bỏ qua quy trình đã thống nhất.</li>
-      <li>Đưa ra ngay ý kiến cải tiến khi chưa hiểu rõ bối cảnh.</li>
-    </ul>
+      <p>Do vậy, để hội nhập nhanh tại BiPlus, bạn nên:</p>
 
-    <p>Nếu em cần hỗ trợ thêm thông tin nào thì trao đổi với chị nhé.</p>
+      <p><strong>1 đến 3 ngày đầu tiên tập trung vào</strong></p>
+      <ul>
+        <li>Tìm hiểu công ty, văn hóa và các quy định chung</li>
+        <li>Tìm hiểu về Agile, Scrum</li>
+        <li>Các quy trình làm việc</li>
+        <li>Khóa học tư duy nền tảng</li>
+      </ul>
+
+      <p><strong>Trong tuần đầu tiên:</strong></p>
+      <ul>
+        <li>Làm quen với mọi người</li>
+        <li>Quan sát và làm quen với cách làm việc của công ty, của nhóm</li>
+      </ul>
+
+      <p class="section-title">Cách làm việc đúng</p>
+      <p>Kỷ luật, cam kết, tôn trọng là những thứ bạn phải tuyệt đối tuân thủ để có thể hội nhập thành công.</p>
+
+      <p>Hãy bắt đầu bằng một tâm trí “tươi mới”, “cởi mở” và “trống rỗng”. Đừng để “chủ nghĩa kinh nghiệm”, “hiểu biết thông thường”, “kiến thức cá nhân” cản trở hành trình đón nhận những điều mới mẻ và khác biệt.</p>
+
+      <p>Đừng vội phán xét đúng/ sai, hay/ dở. Hãy quan sát, làm theo và tuân thủ để hiểu tường tận. Ghi chép những quan sát, những phản hồi/ thắc mắc, những điểm bạn cho rằng có thể/ nên cải tiến và trao đổi với team lead/ trainer hay bất cứ ai bạn thấy thoải mái và tin tưởng có thể cho bạn câu trả lời.</p>
+
+      <p class="section-title">Những điều nên tránh</p>
+      <ul>
+        <li><strong>Sốt ruột đi ngay vào công việc.</strong> Lời khuyên: hãy làm theo tuần tự kế hoạch hội nhập của bạn.</li>
+        <li><strong>Tự mình làm theo cách của mình.</strong> Lời khuyên: hãy tuân thủ đúng nguyên tắc, quy trình làm việc mà nhóm đã cùng xây dựng. Nếu có câu hỏi hoặc vấn đề cần thảo luận thì đưa ra trao đổi ngay với quản lý trực tiếp hoặc với cả nhóm.</li>
+        <li><strong>Đưa ra ngay những ý kiến cải tiến.</strong> Lời khuyên: hãy quan sát, làm theo và hiểu tường tận rồi mới đưa ra ý kiến cải tiến.</li>
+      </ul>
+
+      <p>Nếu bạn cần hỗ trợ thêm thông tin nào thì trao đổi với Team HRA nhé.</p>
+
+      <p>Trân trọng,</p>
+      <p><strong>HRA Team</strong></p>
+    </div>
 
     <div class="footer">
-      <p>
-        Thân mến,<br>
-        {{HR_Name}},<br>
-        HRA Team
-      </p>
-
-      <p>
-        --
-        <br>NGUYEN CAM CHI (Ms.)
-        <br>HRA Team
-        <br>M 0987623189 | E chinc@biplus.com.vn | W biplus.com.vn
-      </p>
-
-      <p>
-        BiPlus Vietnam Software Solutions JSC
-        <br>A 3rd Floor, Bao Anh Building, 85 Tran Thai Tong, Cau Giay, Ha Noi, Vietnam
-      </p>
+      <div><strong>BiPlus</strong></div>
+      <div class="muted">Email: hra@biplus.example • Tel: +84 123 456 789</div>
     </div>
   </div>
 </body>

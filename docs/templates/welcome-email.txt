@@ -1,0 +1,6 @@
+Welcome!
+
+This is the plain-text version of the welcome email.
+
+If you are seeing this, your email client is displaying the text alternative.
+

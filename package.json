@@ -42,6 +42,10 @@
     "release:minor": "gh workflow run \"Manual Release\" -f version_bump=minor",
     "release:patch": "gh workflow run \"Manual Release\" -f version_bump=patch",
     "release:watch": "gh run watch",
+    "send:excel:new": "node scripts/bulk-send-from-excel.mjs",
+    "send:from-config": "node scripts/send-from-config.mjs",
+    "send:template": "node scripts/send-template-from-config.mjs",
+    "send:test-email": "node scripts/send-test-email.js",
     "setup:hooks": "chmod +x tools/setup-hooks.sh && ./tools/setup-hooks.sh",
     "validate": "node tools/cli.js validate",
     "version:all": "node tools/bump-all-versions.js",
@@ -56,10 +60,7 @@
     "version:expansion:set": "node tools/update-expansion-version.js",
     "version:major": "node tools/version-bump.js major",
     "version:minor": "node tools/version-bump.js minor",
-    "version:patch": "node tools/version-bump.js patch",
-    "send:test-email": "node scripts/send-test-email.js",
-    "send:from-config": "node scripts/send-from-config.js",
-    "send:template": "node scripts/send-template-from-config.js"
+    "version:patch": "node tools/version-bump.js patch"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs}": [
@@ -81,12 +82,14 @@
     "comment-json": "^4.2.5",
     "fs-extra": "^11.3.1",
     "glob": "^11.0.3",
+    "googleapis": "^128.0.0",
     "ignore": "^7.0.5",
     "inquirer": "^8.2.6",
     "js-yaml": "^4.1.0",
     "nodemailer": "^7.0.6",
     "ora": "^5.4.1",
-    "semver": "^7.7.2"
+    "semver": "^7.7.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.34.0",

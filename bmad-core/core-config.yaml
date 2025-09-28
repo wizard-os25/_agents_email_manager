@@ -5,7 +5,7 @@ qa:
   qaLocation: docs/qa
 
 prd:
-  prdFile: docs/prd-email.md   # PRD cho onboarding email
+  prdFile: docs/prd-email.md # PRD cho onboarding email
   prdVersion: v1
   prdSharded: true
   prdShardedLocation: docs/prd
@@ -34,9 +34,18 @@ slashPrefix: BMad
 smtp:
   host: "smtp.gmail.com"
   port: 587
-  user: "msy.duhu@gmail.com"     # thay bằng Gmail cá nhân
-  password: ""    # App Password (16 ký tự), KHÔNG dùng password thật
+  user: "msy.duhu@gmail.com" # thay bằng Gmail cá nhân
+  password: "" # App Password (16 ký tự), KHÔNG dùng password thật
   security: "STARTTLS"
   retryPolicy:
     attempts: 3
     backoff: exponential
+
+# =====================================================
+# 👇 Gmail API configuration (preferred over SMTP)
+# =====================================================
+gmailApi:
+  sender: "" # Địa chỉ Gmail/alias được xác minh để gửi (cũng có thể lấy từ env GMAIL_SENDER)
+  tokenPath: "" # Vị trí lưu token OAuth (mặc định ~/.bmad/gmail_token.json nếu để trống)
+  scopes:
+    - "https://www.googleapis.com/auth/gmail.send"
